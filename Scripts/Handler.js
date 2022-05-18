@@ -137,7 +137,7 @@ function TryConnect()
 		Dragger.Toggle('Connecting');
 		$('.settings').addClass('hide');
 		$('.settings input').attr('disabled', true);
-		SocketRoom = new WebSocket('wss://chatley-server-prod.up.railway.app/');
+		SocketRoom = new WebSocket('wss://chatley-server.fly.dev/');
 
 		function StatusToggle(ToDisable = false)
 		{
