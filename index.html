@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+	<head>
+		<title>Chatley - Messenger || Fun & Chat at your comfort</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="Styles/Style.css">
+		<link rel="stylesheet" href="Styles/Toast.css">
+		<link rel="shortcut icon" href="logo.ico"/>
+		<script src='Scripts/JQuery.js'></script>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<section class="settings">
+			<div class="elems init-change">
+				<b>Settings</b>
+				<hr style="width:90%;">
+				<div class="textboxer">
+					<input id="name-box" onkeyup="event.keyCode == 13 && TryConnect();" class="writable" placeholder="Please enter your name"> <label for="name-box" class="starter-lbl set">Please enter your name</label>
+				</div>
+				<div style="margin-bottom: 5px;">
+					<button onclick="TryConnect();">Start Chat</button>
+				</div>
+			</div>
+		</section>
+		<section class="messenger">
+			<div class="chat">
+				<div class="indicator">
+					<span>
+						<span class="a"></span>
+						<span class="b"></span>
+						<span class="c"></span>
+					</span>
+					<b>Connecting</b>
+				</div>
+				<div class="chat-title"><h1>Chatley Messenger</h1></div>
+				<div class="messages"></div>
+				<div class="control-box">
+					<span class="reply-box bottom">
+						<b class="close-icon">❌</b>
+						<i>Here goes the reply message received.</i>
+					</span>
+					<input id="msg-chat" class="sendable" oninput='Emit({ Type: "Typing" })' placeholder="Waiting for others to join..." onkeyup="event.keyCode == 13 && SendMsg()" disabled><button id="chat-send" onclick="SendMsg()">>></button>
+				</div>
+			</div>
+		</section>
+		<script src="Scripts\Utils.js"></script>
+		<script src="Scripts\Handler.js"></script>
+	</body>
+</html>
