@@ -3,6 +3,7 @@ var Typers = { }, MyIdx = -1,
 Actives = { }, IsDebug = false,
 SocketRoom = null, Reply = { Active: false },
 TBFocus = () => setTimeout(() => $('.control-box input').focus(), 50);
+const Servers = { 'Koyeb': 'wss://chatley-techzy-programmer.koyeb.app/', 'Fly': 'wss://chatley-server.fly.dev/'};
 
 Dragger.Initiate();
 Toast.setOptions({
@@ -137,7 +138,7 @@ function TryConnect()
 		Dragger.Toggle('Connecting');
 		$('.settings').addClass('hide');
 		$('.settings input').attr('disabled', true);
-		SocketRoom = new WebSocket('wss://chatley-server.fly.dev/');
+		SocketRoom = new WebSocket(Servers['Koyeb']);
 
 		function StatusToggle(ToDisable = false)
 		{
@@ -292,7 +293,7 @@ function TryConnect()
 
 function Emit(JDat)
 {
-	if (SocketRoom.readyState == SocketRoom.OPEN)
+	if (SocketRoom && SocketRoom.readyState == SocketRoom.OPEN)
 		SocketRoom.send(JSON.stringify(JDat));
 	else SocketRoom?.close();
 }
