@@ -138,7 +138,7 @@ function TryConnect()
 		Dragger.Toggle('Connecting');
 		$('.settings').addClass('hide');
 		$('.settings input').attr('disabled', true);
-		SocketRoom = new WebSocket(Servers['Koyeb']);
+		SocketRoom = new WebSocket(Servers['Fly']);
 
 		function StatusToggle(ToDisable = false)
 		{
